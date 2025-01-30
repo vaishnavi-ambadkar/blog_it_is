@@ -154,6 +154,9 @@ mongoose.connect('mongodb+srv://ambadkarvaishnavi667:Sunitaambadkar@signup.q9zwd
 })
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
+app.get("/",(req,res)=>{
+    res.json("Hi");
+})
 
 // Routes
 app.use('/api/posts', (req, res, next) => {
@@ -180,10 +183,6 @@ app.delete('/api/posts/:id', async (req, res) => {
     res.status(500).json({ message: 'Error deleting post', error: err });
   }
 });
-app.get("/",(req,res)=>{
-    res.json("Hi");
-})
-
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
